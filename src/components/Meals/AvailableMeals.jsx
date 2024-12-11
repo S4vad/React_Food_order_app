@@ -1,4 +1,5 @@
-
+import Card from "../Ui/Card";
+import MealItem from "./MealItem/MealItem";
 
 const DUMMY_MEALS = [
   {
@@ -10,7 +11,7 @@ const DUMMY_MEALS = [
   {
     id: "m2",
     name: "Schnitzel",
-    description: "A german specialty!",
+    description: "A German specialty!",
     price: 16.5,
   },
   {
@@ -28,17 +29,20 @@ const DUMMY_MEALS = [
 ];
 
 const AvailableMeals = () => {
-  const mealsList = DUMMY_MEALS.map((meal) => (
-    <li key={meal.id} className="mb-2 p-2 bg-gray-100 rounded-lg shadow-md">
-      <h3 className="font-semibold">{meal.name}</h3>
-      <p>{meal.description}</p>
-      <p className="font-bold">${meal.price.toFixed(2)}</p>
-    </li>
+  const mealsList = DUMMY_MEALS.map(meal => (
+    <MealItem
+      key={meal.id}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+    />
   ));
 
   return (
     <section className="max-w-screen-lg w-11/12 mx-auto mt-8 animate-meals">
-      <ul>{mealsList}</ul>
+      <Card>
+        <ul>{mealsList}</ul>
+      </Card>
     </section>
   );
 };
