@@ -1,10 +1,12 @@
-import { Fragment } from "react";
+import { Fragment} from "react";
 import ReactDom from "react-dom";
 
 const Backdrop = (props) => {
+
   return (
     <div
       className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-75 z-20"
+      onClick={props.onClose}
     ></div>
   );
 };
@@ -23,7 +25,7 @@ const Modal = (props) => {
   return (
     <Fragment>
       {ReactDom.createPortal(
-        <Backdrop />,
+        <Backdrop onClose={props.onClose}/>,
         portalElement
       )}
       {ReactDom.createPortal(
