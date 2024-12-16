@@ -1,8 +1,12 @@
 import Input from "../../Ui/Input";
 const MealItemForm = () => {
+  const submitHandler = (event) => {
+    event.preventDefault();
+  };
   return (
-    <form className="text-right">
+    <form className="text-right" onSubmit={submitHandler}>
       <Input
+        ref
         label="Amount"
         input={{
           id: "amount",
