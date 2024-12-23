@@ -1,16 +1,15 @@
-import { useRef ,useState} from "react";
+import { useRef, useState } from "react";
 import Input from "../../Ui/Input";
+
 const MealItemForm = (props) => {
-
-  const [amountValid,setAmountValid] = useState(true);
-
+  const [amountValid, setAmountValid] = useState(true);
   const amountInputRef = useRef();
 
   const submitHandler = (event) => {
     event.preventDefault();
 
     const enteredAmount = amountInputRef.current.value; //it always string
-    const enteredAmountNumber = +enteredAmount;
+    const enteredAmountNumber = +enteredAmount; //convert to number
 
     if (
       enteredAmount.trim().length === 0 ||
@@ -18,9 +17,9 @@ const MealItemForm = (props) => {
       enteredAmountNumber > 5
     ) {
       setAmountValid(false);
-      return; 
+      return;
     }
-    props.onAddToCart(enteredAmountNumber)
+    props.onAddToCart(enteredAmountNumber);
   };
   return (
     <form className="text-right" onSubmit={submitHandler}>
