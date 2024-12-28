@@ -40,9 +40,9 @@ const AvailableMeals = () => {
   ));
 
   return (
-    <section className="max-w-screen-lg w-11/12 mx-auto mt-8 animate-meals">
+    <section className="max-w-screen-lg w-11/12 mx-auto mt-8 animate-meals-appear">
       <Card>
-        <ul>{mealsList}</ul>
+        <ul className="list-none m-0 p-0" >{mealsList}</ul>
       </Card>
     </section>
   );
